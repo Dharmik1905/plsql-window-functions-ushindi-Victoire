@@ -1,7 +1,7 @@
 # Results Analysis
 
 ## 1) Descriptive (What happened?)
-- The top 20% of customers (top quartile) generated ~X% of total revenue (replace X after running totals).  
+- The top 25% of customers (top quartile) generated 83% of total revenue.  
 - Monthly totals show higher sales in April and June across Kigali and Rubavu.  
 - Product `Coffee Beans 1kg` consistently appears in top products per region/quarter.
 
