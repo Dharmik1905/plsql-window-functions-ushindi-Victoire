@@ -37,7 +37,7 @@ This helps the business make better **marketing** and **inventory management dec
 ---
 
 ## ⚙️ How to Run (pgAdmin 4)
-1. Create database **`plsql_window_db`** in pgAdmin 4 if you want you can also .  
+1. Create database **`plsql_window_db`** in pgAdmin 4 if you want you can also code the db created in your Vs code but it need some Extension Installation.  
 2. Open **Query Tool**, run `schema/schema.sql` to create tables and load sample data.  
 3. Run the SQL files in `queries/` to reproduce results.  
 4. Screenshots of executions are available in `screenshots/` for verification.  
