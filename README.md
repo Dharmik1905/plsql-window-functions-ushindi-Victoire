@@ -26,9 +26,10 @@ Identify top products and customers, quantify monthly trends, and segment custom
 - Navigation: MoM growth using LAG()
 - Distribution: NTILE(4), CUME_DIST()
 - Moving averages: 3-month AVG() OVER() rolling
+- revenue_analysis:  revenue across all customers,  Revenue per customer, Identify quartiles using NTILE, Top quartile revenue and percentage of total.
 
 ## Key findings (short)
-1. Top customers (top quartile) produce 53% of revenue — loyalty program recommended.
+1. Top customers (top quartile) produce 53.94% of revenue — loyalty program recommended.
 2. Seasonal spikes observed in April and June; 3-month moving average showed upward trend — order more inventory ahead.
 
 ## Academic Integrity Statement
