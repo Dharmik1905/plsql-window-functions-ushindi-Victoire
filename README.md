@@ -31,7 +31,7 @@ This helps the business make better **marketing** and **inventory management dec
   - Top quartile revenue and percentage of total  
 - `screenshots/` — 20+ screenshots of queries and results in pgAdmin 4/Vs code.  
 - `analysis/analysis.md` — descriptive, diagnostic, prescriptive insights.  
-- `references.md` — sources and academic integrity statement.  
+- `references.md` — sources and academic integrity statement. 
 - `README.md` (this file).  
 
 ---
