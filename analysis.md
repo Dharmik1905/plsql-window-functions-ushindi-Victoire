@@ -1,7 +1,7 @@
 # Results Analysis
 
 ## 1) Descriptive (What happened?)
-- The top 25% of customers (top quartile) generated 53%% of total revenue.
+- The top 25% of customers (top quartile) generated 52.94% of total revenue.
     
         * As Total revenue across all customers: 408,000
 
