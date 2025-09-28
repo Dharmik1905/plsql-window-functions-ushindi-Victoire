@@ -88,7 +88,7 @@ cd plsql-window-functions-ushindi-Victoire
 
 - Assignment given by Lecture [Eric Maniraguha](https://www.linkedin.com/in/ericmaniraguha/?originalSubdomain=rw)
 - Developed by [Ushindi Bihame](https://www.linkedin.com/in/ushindi-bihame-7a4a3a1b4/)
-- GitHub: [ub-victor](https://github.com/ub-victor)
+- My GitHub: [ub-victor](https://github.com/ub-victor)
 
 ## License
 
