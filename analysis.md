@@ -1,7 +1,13 @@
 # Results Analysis
 
 ## 1) Descriptive (What happened?)
-- The top 25% of customers (top quartile) generated 83% of total revenue.  
+- The top 25% of customers (top quartile) generated 83% of total revenue.
+    
+        * As Total revenue across all customers: 408,000
+
+        * Top quartile (top 25% customers) revenue: 340,000
+
+        * Percentage of total from top quartile: ≈ 83.33%  
 - Monthly totals show higher sales in April and June across Kigali and Rubavu.  
 - Product `Coffee Beans 1kg` consistently appears in top products per region/quarter.
 
