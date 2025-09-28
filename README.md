@@ -4,7 +4,7 @@
 - **Course:** Database Development with PL/SQL (INSY 8311) — Mastery Project  
 - **Student:** Ushindi Bihame Victoire  
 - **Instructor:** Eric Maniraguha  
-- **Date:** 29 Sep 2025  
+- **Date:** 25 Sep - 29 Sep 2025  
 
 ---
 
@@ -29,7 +29,7 @@ This helps the business make better **marketing** and **inventory management dec
   - Revenue per customer  
   - Quartile segmentation with `NTILE`  
   - Top quartile revenue and percentage of total  
-- `screenshots/` — 20+ screenshots of queries and results in pgAdmin 4.  
+- `screenshots/` — 20+ screenshots of queries and results in pgAdmin 4/Vs code.  
 - `analysis/analysis.md` — descriptive, diagnostic, prescriptive insights.  
 - `references.md` — sources and academic integrity statement.  
 - `README.md` (this file).  
@@ -37,7 +37,7 @@ This helps the business make better **marketing** and **inventory management dec
 ---
 
 ## ⚙️ How to Run (pgAdmin 4)
-1. Create database **`plsql_window_db`** in pgAdmin 4.  
+1. Create database **`plsql_window_db`** in pgAdmin 4 if you want you can also .  
 2. Open **Query Tool**, run `schema/schema.sql` to create tables and load sample data.  
 3. Run the SQL files in `queries/` to reproduce results.  
 4. Screenshots of executions are available in `screenshots/` for verification.  
