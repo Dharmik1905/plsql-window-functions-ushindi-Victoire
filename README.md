@@ -1,55 +1,87 @@
 # plsql-window-functions-Ushindi-Victoire
 
-## Course
-Database Development with PL/SQL (INSY 8311) — Mastery Project
+## Course Information
+- **Course:** Database Development with PL/SQL (INSY 8311) — Mastery Project  
+- **Student:** Ushindi Bihame Victoire  
+- **Instructor:** Eric Maniraguha  
+- **Date:** 29 Sep 2025  
 
-## Business Problem 
-Identify top products and customers, quantify monthly trends, and segment customer value to drive marketing and inventory decisions.
+---
 
-## Contents
-- `schema_and_sample_data.sql` — create tables and insert sample data
-- `queries/` — SQL files for each window-function query (ranking, aggregate, navigation, distribution, moving averages)
-- `screenshots/` — 20+ screenshots showing query results and execution in pgAdmin 4
-- `README.md` (this file)
-- `analysis.md` — descriptive/diagnostic/prescriptive analysis
-- `references.md` — bibliographic sources and academic integrity statement
+## 📌 Business Problem  
+The goal of this project is to **analyze customer and product performance using PL/SQL window functions**.  
+Specifically:  
+- Identify top products and customers.  
+- Quantify monthly sales trends and running totals.  
+- Measure period-over-period growth.  
+- Segment customers into quartiles to support marketing.  
+- Compute moving averages for forecasting inventory needs.  
 
-## How to run (pgAdmin 4 code)
-1. Create database `plsql_window_db`.
-2. Open Query Tool, run `schema_and_sample_data.sql`.
-3. Run the SQL files in `queries/` to reproduce results.
-4. Saved screenshots are in `screenshots/` and their commited to my repo.
+This helps the business make better **marketing** and **inventory management decisions**.  
 
-## Key queries included
-- Ranking: top customers using ROW_NUMBER(), RANK(), DENSE_RANK(), PERCENT_RANK()
-- Aggregate: monthly sales with running totals (ROWS vs RANGE)
-- Navigation: MoM growth using LAG()
-- Distribution: NTILE(4), CUME_DIST()
-- Moving averages: 3-month AVG() OVER() rolling
-- revenue_analysis:  revenue across all customers,  Revenue per customer, Identify quartiles using NTILE, Top quartile revenue and percentage of total.
+---
 
-## Key findings (short)
-1. Top customers (top quartile) produce 53.94% of revenue — loyalty program recommended.
-2. Seasonal spikes observed in April and June; 3-month moving average showed upward trend — order more inventory ahead.
+## 📂 Repository Contents
+- `schema/schema.sql` — create tables (`customers`, `products`, `transactions`) and insert sample data.  
+- `queries/window_functions.sql` — all window function queries (ranking, aggregate, navigation, distribution, moving averages).  
+- `queries/revenue_analysis.sql` — revenue analysis queries:
+  - Total revenue across all customers  
+  - Revenue per customer  
+  - Quartile segmentation with `NTILE`  
+  - Top quartile revenue and percentage of total  
+- `screenshots/` — 20+ screenshots of queries and results in pgAdmin 4.  
+- `analysis/analysis.md` — descriptive, diagnostic, prescriptive insights.  
+- `references.md` — sources and academic integrity statement.  
+- `README.md` (this file).  
 
-## Academic Integrity Statement
-All sources are cited in `references.md`. Implementations and analysis are original work. No AI-generated content was copied without attribution.
+---
 
-## 🧰 How to contribute
-Follow coding standards and keep the codebase consistent.
-Update documentation for any new features or changes.
-Add tests for new functionality when applicable.
-Respect the license and attribution requirements.
+## ⚙️ How to Run (pgAdmin 4)
+1. Create database **`plsql_window_db`** in pgAdmin 4.  
+2. Open **Query Tool**, run `schema/schema.sql` to create tables and load sample data.  
+3. Run the SQL files in `queries/` to reproduce results.  
+4. Screenshots of executions are available in `screenshots/` for verification.  
 
-## 🚀 Ready-to-clone snippet
-If you’re ready to contribute or just want to explore locally, clone the repository and enter the project directory:
+---
 
+## 🔑 Key Queries
+- **Ranking:** `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `PERCENT_RANK()` → identify top customers by revenue.  
+- **Aggregate:** `SUM()`, `AVG()`, `MIN()`, `MAX()` with frames (`ROWS`, `RANGE`) → running totals & trends.  
+- **Navigation:** `LAG()`, `LEAD()` → month-over-month growth analysis.  
+- **Distribution:** `NTILE(4)`, `CUME_DIST()` → customer segmentation.  
+- **Moving averages:** `AVG() OVER()` → 3-month rolling sales average.  
+- **Revenue analysis:** total revenue, per-customer revenue, quartiles, and top-quartile % contribution.  
 
-## If you may want to contribute or clone
+---
 
-```
+## 📊 Key Findings
+1. **Top customers (top quartile) generated 52.94% of all revenue** → recommend introducing a loyalty program to retain them.  
+2. **Seasonal spikes observed in April and June** → confirmed by 3-month moving average trend → suggests ordering more inventory ahead of peak demand.  
+
+---
+
+## 📜 Academic Integrity Statement
+All sources are properly cited in `references.md`.  
+All implementations and analysis are original work.  
+No AI-generated content was copied without attribution or adaptation.  
+
+---
+
+## 🧰 Contribution Guidelines
+- Follow coding standards for SQL (uppercase keywords, consistent indentation).  
+- Keep documentation updated when adding/changing queries.  
+- Add screenshots when new queries are introduced.  
+- Respect licensing and attribution requirements.  
+
+---
+
+## 🚀 Clone and Explore
+Clone the repository and enter the project directory:  
+
+```bash
 git clone https://github.com/ub-victor/plsql-window-functions-ushindi-Victoire.git
-cd plsql-window-functions-ushindi-Vic
+cd plsql-window-functions-ushindi-Victoire
+
 
 ```
 ## Credits
