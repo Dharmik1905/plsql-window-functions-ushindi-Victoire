@@ -161,4 +161,4 @@ cd plsql-window-functions-ushindi-Victoire
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
-See [LICENSE.txt](./LICENSE.txt) for details.  
+See [LICENSE.txt](./LICENSE.txt) for details.
