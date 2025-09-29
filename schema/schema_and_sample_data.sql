@@ -73,3 +73,8 @@ INSERT INTO transactions (customer_id, product_id, sale_date, quantity, amount) 
 (1,6,'2025-06-06',2,6000.00),
 (2,1,'2025-06-15',1,25000.00),
 (3,1,'2025-06-18',2,50000.00),
+
+
+SELECT * FROM customers;
+SELECT * FROM products;
+SELECT * FROM transactions;

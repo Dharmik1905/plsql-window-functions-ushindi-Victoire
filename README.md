@@ -1,6 +1,23 @@
 # plsql-window-functions-Ushindi-Victoire
 
-## Course Information
+## 📑 Table of Contents
+- [📘 Course Information](#-course-information)
+- [📌 Business Problem](#-business-problem)
+- [🗄️ Database Schema](#️-database-schema)
+- [🗂️ ER Diagram](#️-er-diagram)
+- [📂 Repository Structure](#-repository-structure)
+- [⚙️ How to Run](#️-how-to-run)
+- [🔑 Key Queries](#-key-queries)
+- [📊 Key Findings](#-key-findings)
+- [📜 Academic Integrity](#-academic-integrity)
+- [📘 Contribution Guidelines](#-contribution-guidelines)
+- [🚀 Clone and Explore](#-clone-and-explore)
+- [🙌 Credits](#-credits)
+- [📜 License](#-license)
+
+---
+
+## 📘 Course Information
 - **Course:** Database Development with PL/SQL (INSY 8311) — Mastery Project  
 - **Student:** Ushindi Bihame Victoire  
 - **Instructor:** Eric Maniraguha  
@@ -8,89 +25,140 @@
 
 ---
 
-## 📌 Business Problem  
-The goal of this project is to **analyze customer and product performance using PL/SQL window functions**.  
-Specifically:  
-- Identify top products and customers.  
-- Quantify monthly sales trends and running totals.  
-- Measure period-over-period growth.  
-- Segment customers into quartiles to support marketing.  
-- Compute moving averages for forecasting inventory needs.  
+## 📌 Business Problem
+The project analyzes **customer and product performance** using **PL/SQL window functions**:  
+- Identify **top products and customers**.  
+- Quantify **monthly sales trends & running totals**.  
+- Measure **growth over time**.  
+- Segment customers into **quartiles for marketing**.  
+- Compute **moving averages for forecasting inventory**.  
 
-This helps the business make better **marketing** and **inventory management decisions**.  
-
----
-
-## 📂 Repository Contents
-- `schema/schema.sql` — create tables (`customers`, `products`, `transactions`) and insert sample data.  
-- `queries/window_functions.sql` — all window function queries (ranking, aggregate, navigation, distribution, moving averages).  
-- `queries/revenue_analysis.sql` — revenue analysis queries:
-  - Total revenue across all customers  
-  - Revenue per customer  
-  - Quartile segmentation with `NTILE`  
-  - Top quartile revenue and percentage of total  
-- `screenshots/` — 20+ screenshots of queries and results in pgAdmin 4/Vs code.  
-- `analysis/analysis.md` — descriptive, diagnostic, prescriptive insights.  
-- `references.md` — sources and academic integrity statement.
-- `License.txt` We use MIt License For our Project for it security. 
-- `README.md` (this file).  
+👉 Helps business improve **marketing** and **inventory management decisions**.  
 
 ---
 
-## ⚙️ How to Run (pgAdmin 4)
-1. Create database **`plsql_window_db`** in pgAdmin 4 if you want you can also code the db created in your Vs code but it need some Extension Installation.  
-2. Open **Query Tool**, run `schema/schema.sql` to create tables and load sample data.  
-3. Run the SQL files in `queries/` to reproduce results.  
-4. Screenshots of executions are available in `screenshots/` for verification.  
+## 🗄️ Database Schema
+### Tables
+- **customers** → customer_id, name, region, created_at  
+- **products** → product_id, name, category  
+- **transactions** → transaction_id, customer_id, product_id, sale_date, quantity, amount  
+
+### Constraints & Indexes
+- Primary keys on all tables.  
+- Foreign keys: `transactions.customer_id → customers`, `transactions.product_id → products`.  
+- Indexes on `sale_date`, `customer_id`, `product_id`.  
+
+---
+
+## 🗂️ ER Diagram
+```mermaid
+erDiagram
+    CUSTOMERS {
+        int customer_id PK
+        text name
+        text region
+        date created_at
+    }
+
+    PRODUCTS {
+        int product_id PK
+        text name
+        text category
+    }
+
+    TRANSACTIONS {
+        int transaction_id PK
+        int customer_id FK
+        int product_id FK
+        date sale_date
+        int quantity
+        numeric amount
+    }
+
+    CUSTOMERS ||--o{ TRANSACTIONS : "purchases"
+    PRODUCTS  ||--o{ TRANSACTIONS : "sold in"
+```
+
+---
+
+## 📂 Repository Structure
+```
+plsql-window-functions-Ushindi-Victoire/
+├── schema/
+│   └── schema_and_sample_data.sql   # Tables + sample inserts
+├── queries/
+│   ├── 01_ranking.sql               # Query A - Ranking
+│   ├── 02_aggregate_running_total_A.sql  # Query B1 - Running total (ROWS)
+│   ├── 02_aggregate_running_total_B.sql  # Query B2 - Running total (RANGE)
+│   ├── 03_navigation_lag_lead.sql   # Query C - Month-over-Month growth
+│   ├── 04_distribution_ntile_cume_dist.sql # Query D - Quartiles & CUME_DIST
+│   ├── 05_moving_avg.sql            # Query E - Moving averages
+│   └── revenue_analysis.sql         # Revenue queries (top quartile etc.)
+├── analysis/
+│   └── analysis.md                  # Descriptive + prescriptive insights
+├── screenshots/                     # Query execution results
+├── references.md                    # References & academic integrity
+├── LICENSE.txt                      # MIT License
+└── README.md                        # Project overview
+```
+
+---
+
+## ⚙️ How to Run
+1. Create database **`plsql_window_db`** in pgAdmin 4 (or use VS Code with PostgreSQL extension).  
+2. Run `schema/schema_and_sample_data.sql` to create tables and load data.  
+3. Execute queries inside `queries/` to reproduce results.  
+4. Compare results with screenshots in `screenshots/`.  
 
 ---
 
 ## 🔑 Key Queries
-- **Ranking:** `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `PERCENT_RANK()` → identify top customers by revenue.  
-- **Aggregate:** `SUM()`, `AVG()`, `MIN()`, `MAX()` with frames (`ROWS`, `RANGE`) → running totals & trends.  
-- **Navigation:** `LAG()`, `LEAD()` → month-over-month growth analysis.  
-- **Distribution:** `NTILE(4)`, `CUME_DIST()` → customer segmentation.  
-- **Moving averages:** `AVG() OVER()` → 3-month rolling sales average.  
-- **Revenue analysis:** total revenue, per-customer revenue, quartiles, and top-quartile % contribution.  
+- **Ranking:** `ROW_NUMBER()`, `RANK()`, `DENSE_RANK()`, `PERCENT_RANK()` → top customers.  
+- **Aggregate:** `SUM()`, `AVG()`, `MIN()`, `MAX()` with `ROWS` & `RANGE` frames → trends & totals.  
+- **Navigation:** `LAG()`, `LEAD()` → month-over-month growth.  
+- **Distribution:** `NTILE(4)`, `CUME_DIST()` → segment customers into quartiles.  
+- **Moving averages:** `AVG() OVER()` → 3-month rolling average.  
+- **Revenue analysis:** total revenue, quartiles, % of top 25% contribution.  
 
 ---
 
 ## 📊 Key Findings
-1. **Top customers (top quartile) generated 52.94% of all revenue** → recommend introducing a loyalty program to retain them.  
-2. **Seasonal spikes observed in April and June** → confirmed by 3-month moving average trend → suggests ordering more inventory ahead of peak demand.  
+1. **Top 25% of customers contributed ~52.94% of revenue** → loyalty program recommended.  
+2. **Seasonal spikes** in April & June → plan inventory ahead.  
+3. **Coffee Beans 1kg dominates sales** → allocate more stock to this product.  
 
 ---
 
-## 📜 Academic Integrity Statement
-All sources are properly cited in `references.md`.  
-All implementations and analysis are original work.  
-No AI-generated content was copied without attribution or adaptation.  
+## 📜 Academic Integrity
+All sources are cited in `references.md`.  
+All queries and analysis are original.  
+No AI-generated text/code copied without attribution.  
 
 ---
 
-## 🧰 Contribution Guidelines
-- Follow coding standards for SQL (uppercase keywords, consistent indentation).  
-- Keep documentation updated when adding/changing queries.  
-- Add screenshots when new queries are introduced.  
-- Respect licensing and attribution requirements.  
+## 📘 Contribution Guidelines
+- Use uppercase SQL keywords & consistent formatting.  
+- Add documentation when introducing new queries.  
+- Include screenshots for new query results.  
+- Follow MIT License rules.  
 
 ---
 
 ## 🚀 Clone and Explore
-Clone the repository and enter the project directory:  
-
 ```bash
 git clone https://github.com/ub-victor/plsql-window-functions-ushindi-Victoire.git
 cd plsql-window-functions-ushindi-Victoire
-
-
 ```
-## Credits
 
-- Assignment given by Lecture [Eric Maniraguha](https://www.linkedin.com/in/ericmaniraguha/?originalSubdomain=rw)
-- Developed by [Ushindi Bihame](https://www.linkedin.com/in/ushindi-bihame-7a4a3a1b4/)
-- My GitHub: [ub-victor](https://github.com/ub-victor)
+---
 
-## License
+## 🙌 Credits
+- Assignment by **Lecturer Eric Maniraguha**  
+- Developed by **Ushindi Bihame Victoire**  
+- GitHub: [ub-victor](https://github.com/ub-victor)  
 
-This project is open-source and available under the MIT License.  
+---
+
+## 📜 License
+This project is licensed under the **MIT License**.  
+See [LICENSE.txt](./LICENSE.txt) for details.  
